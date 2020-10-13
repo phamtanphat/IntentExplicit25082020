@@ -20,10 +20,16 @@ public class MainActivity2 extends AppCompatActivity {
 //            Toast.makeText(this, chuoi, Toast.LENGTH_SHORT).show();
 //        }
         // 2 : Get Array drawable
+//        Intent intent = getIntent();
+//        if (intent != null){
+//            int [] arrDrawable = intent.getIntArrayExtra(AppConstant.KEY_ARRAY);
+//            Toast.makeText(this, arrDrawable.length + "", Toast.LENGTH_SHORT).show();
+//        }
+        // 3 : Get Object
         Intent intent = getIntent();
         if (intent != null){
-            int [] arrDrawable = intent.getIntArrayExtra(AppConstant.KEY_ARRAY);
-            Toast.makeText(this, arrDrawable.length + "", Toast.LENGTH_SHORT).show();
+            Person person = (Person) intent.getSerializableExtra(AppConstant.KEY_OBJECT);
+            Toast.makeText(this, person.name + "", Toast.LENGTH_SHORT).show();
         }
     }
 }
