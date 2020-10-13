@@ -38,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        mBinding.buttonObject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Person person = new Person("Nguyen Van A",20);
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                intent.putExtra(AppConstant.KEY_OBJECT,person);
+                startActivity(intent);
+            }
+        });
 
     }
 }
