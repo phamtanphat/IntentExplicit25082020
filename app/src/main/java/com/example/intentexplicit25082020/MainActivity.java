@@ -29,5 +29,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mBinding.buttonArray.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int [] arrDrawable = {R.drawable.ic_launcher_background,R.drawable.ic_launcher_foreground};
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                intent.putExtra(AppConstant.KEY_ARRAY,arrDrawable);
+                startActivity(intent);
+            }
+        });
+
     }
 }

@@ -14,10 +14,16 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         //1 : Get String
+//        Intent intent = getIntent();
+//        if (intent != null){
+//            String chuoi = intent.getStringExtra(AppConstant.KEY_STRING);
+//            Toast.makeText(this, chuoi, Toast.LENGTH_SHORT).show();
+//        }
+        // 2 : Get Array drawable
         Intent intent = getIntent();
         if (intent != null){
-            String chuoi = intent.getStringExtra(AppConstant.KEY_STRING);
-            Toast.makeText(this, chuoi, Toast.LENGTH_SHORT).show();
+            int [] arrDrawable = intent.getIntArrayExtra(AppConstant.KEY_ARRAY);
+            Toast.makeText(this, arrDrawable.length + "", Toast.LENGTH_SHORT).show();
         }
     }
 }
