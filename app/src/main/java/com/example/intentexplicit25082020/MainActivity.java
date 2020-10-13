@@ -12,13 +12,14 @@ import com.example.intentexplicit25082020.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding mBinding;
-    Person person;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-        person  = new Person("Nguyen Van A" , 20);
-        mBinding.setPerson(person);
+        mBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(mBinding.getRoot());
+
+        mBinding.textviewAge.setText("20");
+        mBinding.textviewName.setText("Nguyen Van A");
 
     }
 }
