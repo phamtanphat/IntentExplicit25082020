@@ -11,6 +11,8 @@ import android.view.View;
 
 import com.example.intentexplicit25082020.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding mBinding;
@@ -23,9 +25,10 @@ public class MainActivity extends AppCompatActivity {
         mBinding.buttonString.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
-                intent.putExtra(AppConstant.KEY_STRING,"hello");
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+//                intent.putExtra(AppConstant.KEY_STRING,"hello");
+//                startActivity(intent);
+                sendDataIntent(AppConstant.KEY_STRING,"hello");
             }
         });
 
@@ -41,12 +44,22 @@ public class MainActivity extends AppCompatActivity {
         mBinding.buttonObject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ArrayList<Person> people = new ArrayList<>();
                 Person person = new Person("Nguyen Van A",20);
+                people.add(person);
                 Intent intent = new Intent(MainActivity.this,MainActivity2.class);
-                intent.putExtra(AppConstant.KEY_OBJECT,person);
+                intent.putExtra(AppConstant.KEY_OBJECT,people);
                 startActivity(intent);
             }
         });
 
+
+    }
+    public <T> void sendDataIntent(String key , T value){
+        Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+        if (value instanceof String){
+            intent.putExtra(key,(String) value);
+        }
+        startActivity(intent);
     }
 }
