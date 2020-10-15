@@ -28,10 +28,10 @@ public class MainActivity2 extends AppCompatActivity {
 //            Toast.makeText(this, arrDrawable.length + "", Toast.LENGTH_SHORT).show();
 //        }
         // 3 : Get Object
-//        Intent intent = getIntent();
-//        if (intent != null){
-//            ArrayList<Person> people = intent.getParcelableArrayListExtra(AppConstant.KEY_OBJECT);
-//            Toast.makeText(this, people.size() + "", Toast.LENGTH_SHORT).show();
-//        }
+        Intent intent = getIntent();
+        if (intent != null){
+            ArrayList<Person> people = intent.getParcelableArrayListExtra(AppConstant.KEY_OBJECT);
+            Toast.makeText(this, people.size() + "", Toast.LENGTH_SHORT).show();
+        }
     }
 }

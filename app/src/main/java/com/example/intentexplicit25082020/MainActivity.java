@@ -12,6 +12,7 @@ import android.view.View;
 import com.example.intentexplicit25082020.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,9 +48,10 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<Person> people = new ArrayList<>();
                 Person person = new Person("Nguyen Van A",20);
                 people.add(person);
-                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
-                intent.putExtra(AppConstant.KEY_OBJECT,people);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+//                intent.putExtra(AppConstant.KEY_OBJECT,people);
+//                startActivity(intent);
+                sendDataIntent(AppConstant.KEY_OBJECT,people);
             }
         });
 
@@ -59,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,MainActivity2.class);
         if (value instanceof String){
             intent.putExtra(key,(String) value);
+        }else  if (value instanceof Person){
+            intent.putExtra(key , (Person) value);
+        }else if (value instanceof ArrayList<?>){
+            if (value instanceof Object){
+                intent.putExtra(key , (ArrayList<Person>) value);
+            }
         }
         startActivity(intent);
     }
